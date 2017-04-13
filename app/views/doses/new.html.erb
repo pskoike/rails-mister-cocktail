@@ -5,9 +5,9 @@
       <p>Find me in app/views/doses/new.html.erb</p>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
-      <%= f.input :ingredient_id, collection: @ingredients %>
+      <%= f.association :ingredient, error: 'The cocktail already have this ingredient'  %>
 
-      <%= f.button :submit %>
+      <%= f.button :submit %> <%= link_to 'Cancel',  cocktail_path(@cocktail), class: 'btn btn-default'%>
       <% end %>
 
 
