@@ -1,16 +1,31 @@
+<%= render 'banner'%>
 <div class="container">
-  <div class="row">
+  <div class="row" id="list-cocktails">
     <div class="col-sm-8 col-sm-offset-2">
-      <h1>Cocktails#index</h1>
-      <p>Find me in app/views/cocktails/index.html.erb</p>
-      <%= link_to "Create Coacktail", new_cocktail_path, class: 'btn btn-default' %>
+      <h1>See all <strong><%= Cocktail.count %></strong> Cocktails</h1>
+      <p>Pick one and try</p>
+      <!-- <%= link_to "Create Coacktail", new_cocktail_path, class: 'btn btn-default' %> -->
     </div>
-  </div>
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 padded">
-      <% @cocktails.each do |c| %>
+    </div>
+    <div class="row">
+
+      <!-- <% @cocktails.each do |c| %>
       <p><%= link_to c.name, cocktail_path(c.id) %></p>
-      <% end %>
+      <% end %> -->
+      <div class="col-sm-8 col-sm-offset-2">
+      <% @cocktails.each do |c| %>
+
+        <div class="media">
+          <div class="media-left">
+              <i class="fa fa-glass"></i>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= link_to c.name, cocktail_path(c.id) %></h4>
+            <%c.doses.each do |d| %>
+              <p><%= d.description %> - <%= d.ingredient.name %></p>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
     </div>
   </div>
-</div>

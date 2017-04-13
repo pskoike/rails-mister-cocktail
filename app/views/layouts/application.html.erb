@@ -11,6 +11,17 @@
   </head>
 
   <body>
-    <%= yield %>
+      <%= render 'layouts/navbar' unless @disable_nav %>
+      <%= yield %>
   </body>
+
+  <script>
+    $(document).ready(function() {
+      $("#all-cocktails").click(function(event){
+        event.preventDefault();
+        scrollTo( $("#list-cocktails"), 2000);
+      });
+     });
+  </script>
+
 </html>

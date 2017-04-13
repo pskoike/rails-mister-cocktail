@@ -1,5 +1,6 @@
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show]
+  before_filter :disable_nav, only: [:index]
   def index
     @cocktails = Cocktail.all
   end
