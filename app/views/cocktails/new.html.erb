@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <h1>Cocktails#new</h1>
-      <p>Find me in app/views/cocktails/new.html.erb</p>
+      <h1>Add a Cocktail</h1>
+      <p>Very simple, just choose a name. on next step you will add doses</p>
       <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
-      <%= f.button :submit %>
+      <%= f.submit 'Add Cocktail', class: 'btn btn-success' %>
       <% end %>
 
 

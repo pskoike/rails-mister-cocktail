@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <h1>Doses#new</h1>
-      <p>Find me in app/views/doses/new.html.erb</p>
+      <h1>Add Doses</h1>
+      <p>Select the ingredient and set the quantity</p>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.input :description %>
-      <%= f.association :ingredient, error: 'The cocktail already have this ingredient'  %>
 
-      <%= f.button :submit %> <%= link_to 'Cancel',  cocktail_path(@cocktail), class: 'btn btn-default'%>
+      <%= f.association :ingredient, error: 'The cocktail already have this ingredient'  %>
+      <%= f.input :description %>
+
+      <%= f.submit 'Add', class: 'btn btn-default' %> <%= link_to 'Cancel',  cocktail_path(@cocktail), class: 'btn btn-default'%>
       <% end %>
 
 
