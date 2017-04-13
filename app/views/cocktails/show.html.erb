@@ -10,6 +10,12 @@
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 padded">
       <h3><%= @cocktail.name %></h3>
+      <%= link_to "Add dose",  new_cocktail_dose_path(@cocktail), class: 'btn btn-default' %>
+      <% @cocktail.doses.each do |dose| %>
+        <ul>
+          <li><%= dose.description %> - <%= dose.ingredient.name %> | <%= link_to "Remove dose",    cocktail_dose_path(@cocktail, dose.id), class: 'btn btn-default', method: :delete %></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
