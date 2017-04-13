@@ -1,19 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1>Cocktails#show</h1>
-      <p>Find me in app/views/cocktails/show.html.erb</p>
-      <%= link_to "Create Coacktail", new_cocktail_path, class: 'btn btn-default' %>
-      <%= link_to "All Coacktails", cocktails_path, class: 'btn btn-default' %>
-    </div>
-  </div>
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 padded">
-      <h3><%= @cocktail.name %></h3>
-      <%= link_to "Add dose",  new_cocktail_dose_path(@cocktail), class: 'btn btn-default' %>
+        <div class="col-sm-8 col-sm-offset-2">
+      <h1><%= @cocktail.name %>  <%= link_to "Add dose",  new_cocktail_dose_path(@cocktail), class: 'btn btn-success btn-xs' %></h1>
       <% @cocktail.doses.each do |dose| %>
         <ul>
-          <li><%= dose.description %> - <%= dose.ingredient.name %> | <%= link_to "Remove dose",    cocktail_dose_path(@cocktail, dose.id), class: 'btn btn-default', method: :delete %></li>
+          <li><%= dose.description %> - <%= dose.ingredient.name %> | <%= link_to "Remove dose",    cocktail_dose_path(@cocktail, dose.id), class: 'btn btn-danger btn-xs', method: :delete %></li>
         </ul>
       <% end %>
     </div>

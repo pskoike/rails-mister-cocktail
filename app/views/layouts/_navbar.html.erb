@@ -1,9 +1,11 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <%= link_to cocktails_path, class: 'navbar-brand' do %>
         <i class="fa fa-glass"></i>
       <% end %>
     </div>
+    <p class="navbar-text navbar-right"><%= link_to "Create Coacktail", new_cocktail_path, class: 'btn btn-success' %>
+    <%= link_to "All Coacktails", cocktails_path, class: 'btn btn-primary' %></p>
   </div>
 </nav>
