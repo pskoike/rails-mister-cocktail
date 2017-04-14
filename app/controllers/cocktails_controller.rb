@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+  before_action :set_cocktail, only: [:show, :photo]
   before_filter :disable_nav, only: [:index]
   def index
     @cocktails = Cocktail.all
@@ -22,6 +22,10 @@ class CocktailsController < ApplicationController
     end
   end
 
+  # def photo?
+  #   @cocktail.photo ? true : false
+  # end
+
   def destroy
   end
 
@@ -32,6 +36,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
