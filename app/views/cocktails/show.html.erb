@@ -5,7 +5,7 @@
             <% if @cocktail.photo? %>
             <%= cl_image_tag @cocktail.photo.path, width: 350, height: 400, crop: :fill %>
             <% else %>
-            <%= cl_image_tag 'http://placehold.it/350x400' %>
+            <%= cl_image_tag "placeholder350x400_copy_uelzb1"  %>
             <% end %>
         </div>
         <div class="col-sm-6 col-md-6">
@@ -21,6 +21,7 @@
                             <% end %>
                         </tbody>
                         <p><%= link_to "Add dose",  new_cocktail_dose_path(@cocktail), class: 'btn btn-success btn-xs btn-block' %></p>
+                      </table>
                     </div>
                 </div>
             </div>
