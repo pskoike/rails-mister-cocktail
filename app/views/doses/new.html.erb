@@ -6,7 +6,7 @@
       <%= simple_form_for [@cocktail, @dose] do |f| %>
 
       <%= f.association :ingredient, error: 'The cocktail already have this ingredient'  %>
-      <%= f.input :description %>
+      <%= f.input :description, label: 'Quantity'%>
 
       <%= f.submit 'Add', class: 'btn btn-default' %> <%= link_to 'Cancel',  cocktail_path(@cocktail), class: 'btn btn-default'%>
       <% end %>

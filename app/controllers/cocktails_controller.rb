@@ -1,8 +1,8 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :photo]
+  before_action :set_cocktail, only: [:show, :photo, :edit, :update]
   before_filter :disable_nav, only: [:index]
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.order('created_at DESC')
   end
 
   def show
@@ -10,7 +10,6 @@ class CocktailsController < ApplicationController
 
   def new
     @cocktail = Cocktail.new
-
   end
 
   def create
@@ -22,11 +21,20 @@ class CocktailsController < ApplicationController
     end
   end
 
-  # def photo?
-  #   @cocktail.photo ? true : false
-  # end
+  def edit
+  end
+
+  def update
+    if @cocktail.update(cocktail_params)
+      redirect_to cocktail_path(@cocktail)
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
+    @cocktail.destroy
+    redirect_to cocktails_path
   end
 
   private

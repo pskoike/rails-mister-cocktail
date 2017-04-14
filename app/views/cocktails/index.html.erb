@@ -1,35 +1,28 @@
 <%= render 'banner'%>
 <div class="container" id="list-cocktails">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1>See all <strong><%= Cocktail.count %></strong> Cocktails</h1>
-      <p>Pick one and try</p>
-      <!-- <%= link_to "Create Coacktail", new_cocktail_path, class: 'btn btn-default' %> -->
-    </div>
-    </div>
     <div class="row">
-
-      <!-- <% @cocktails.each do |c| %>
-      <p><%= link_to c.name, cocktail_path(c.id) %></p>
-      <% end %> -->
-      <div class="col-sm-8 col-sm-offset-2">
-      <% @cocktails.each do |c| %>
-
-        <div class="media">
-          <div class="media-left">
-              <% if c.photo? %>
-              <%= cl_image_tag c.photo.path, width: 64, height: 64, crop: :fill %>
-              <% end %>
-
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading"><%= link_to c.name, cocktail_path(c.id) %></h4>
-            <%c.doses.each do |d| %>
-              <p><%= d.description %> - <%= d.ingredient.name %></p>
-            <% end %>
-          </div>
+        <div class="col-sm-8 col-sm-offset-2 text-center padded">
+            <h1>See all
+                <strong><%= Cocktail.count %></strong>
+                Cocktails</h1>
         </div>
-        <hr>
-        <% end %>
     </div>
-  </div>
+    <div class="card-wrapper padded-xs">
+        <div class="row">
+            <% @cocktails.each do |c| %>
+            <div class="col-sm-6 col-md-3 padded-xs">
+                <div class="thumbnail text-center">
+                    <% if c.photo? %>
+                    <%= cl_image_tag c.photo.path, width: 250, height: 200, crop: :fill %>
+                    <% else %>
+                    <%= cl_image_tag 'http://placehold.it/250x200' %>
+                    <% end %>
+                    <div class="caption">
+                        <p>
+                            <%= link_to '+ details', cocktail_path(c.id), class: 'btn btn-warning btn-md btn-block'%></p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
