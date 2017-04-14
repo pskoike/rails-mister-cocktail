@@ -18,7 +18,7 @@
                     <%= cl_image_tag 'placeholder250x200_copy_qhpwkz' %>
                     <% end %>
                     <div class="caption">
-                        <p>
+                        <p class="blue-text"><%= c.name %></p><p>
                             <%= link_to '+ details', cocktail_path(c.id), class: 'btn btn-warning btn-md btn-block'%></p>
                     </div>
                 </div>
