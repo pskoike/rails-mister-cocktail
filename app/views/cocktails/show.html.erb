@@ -3,7 +3,7 @@
         <h1 class="text-center blue-text"><%= @cocktail.name %></h1>
         <div class="col-md-4 col-md-offset-1 text-center mb">
             <% if @cocktail.photo? %>
-            <%= cl_image_tag @cocktail.photo.path, width: 350, height: 400, crop: :fill %>
+            <%= cl_image_tag @cocktail.photo.path, width: 100, height: 400, crop: :fill %>
             <% else %>
             <%= cl_image_tag "placeholder350x400_copy_uelzb1"  %>
             <% end %>
